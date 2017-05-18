@@ -1,19 +1,20 @@
 # Get subscribedSku
+Retrieve a specific commercial subscription that an organization has acquired.
 
-Retrieve the properties and relationships of subscribedsku object.
 ## Prerequisites
-One of the following **scopes** is required to execute this API: 
+One of the following **scopes** is required to execute this API: *Directory.Read.All*, *Directory.ReadWrite.All* or *Directory.AccessAsUser.All*
+
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /subscribedSkus/<id>
+GET /subscribedSkus/{id}
 ```
 ## Optional query parameters
-This method supports the [OData Query Parameters](http://graph.microsoft.io/docs/overview/query_parameters) to help customize the response.
+This method supports the [OData Query Parameters](http://developer.microsoft.com/en-us/graph/docs/overview/query_parameters) to help customize the response.
 ## Request headers
 | Name       | Type | Description|
 |:-----------|:------|:----------|
-| Authorization  | string  | Bearer <token>. Required. |
+| Authorization  | string  | Bearer &lt;token&gt;. Required. |
 
 ## Request body
 Do not supply a request body for this method.
@@ -27,7 +28,7 @@ Here is an example of the request.
   "name": "get_subscribedsku"
 }-->
 ```http
-GET https://graph.microsoft.com/beta/subscribedSkus/<id>
+GET https://graph.microsoft.com/beta/subscribedSkus/{id}
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.

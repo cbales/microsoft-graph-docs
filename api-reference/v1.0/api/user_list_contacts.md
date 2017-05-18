@@ -5,13 +5,34 @@ Get a contact collection from the default Contacts folder of the signed-in user.
 One of the following **scopes** is required to execute this API: 
 *Contacts.Read; Contacts.ReadWrite*
 ## HTTP request
+
+To get all the contacts in a user's mailbox:
+
 <!-- { "blockType": "ignored" } -->
 ```http
 GET /me/contacts
-GET /users/<id | userPrincipalName>/contacts
+GET /users/{id | userPrincipalName}/contacts
+```
+
+To get contacts in a specific folder in the user's mailbox:
+
+<!-- { "blockType": "ignored" } -->
+```http
+GET /me/contactfolders/{Id}/contacts
+GET /users/{id | userPrincipalName}/contactfolders/{id}/contacts
+
+GET /me/contactFolder/{id}/childFolders/{id}/.../contacts
+GET /users/{id | userPrincipalName}/contactFolders/{id}/childFolders/{id}/contacts
 ```
 ## Optional query parameters
-This method supports the [OData Query Parameters](http://graph.microsoft.io/docs/overview/query_parameters) to help customize the response.
+This method supports the [OData Query Parameters](http://developer.microsoft.com/en-us/graph/docs/overview/query_parameters) to help customize the response.
+
+For example, you can use the `$filter` query parameter to filter contacts based on the domain of their email addresses:
+
+`https://graph.microsoft.com/v1.0/me/contacts?$filter=emailAddresses/any(a:a/address eq '@domain.com')`
+
+
+
 ## Request headers
 | Header       | Value |
 |:---------------|:--------|
@@ -32,6 +53,8 @@ Here is an example of the request.
 ```http
 GET https://graph.microsoft.com/v1.0/me/contacts
 ```
+
+
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
 <!-- {

@@ -1,26 +1,45 @@
 # List messages
 
-Get all the messages in the signed-in user's mailbox (including the Deleted Items and Clutter folders).
+Get the messages in the signed-in user's mailbox (including the Deleted Items and Clutter folders).
+
+Currently, this operation returns message bodies in only HTML format.
+
 ## Prerequisites
 One of the following **scopes** is required to execute this API:
 *Mail.Read; Mail.ReadWrite*
 ## HTTP request
+
+To get all the messages in a user's mailbox:
+
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /users/<id | userPrincipalName>/messages
+GET /me/messages
+GET /users/{id | userPrincipalName}/messages
 ```
+
+To get messages in a specific folder in the user's mailbox:
+
+<!-- { "blockType": "ignored" } -->
+```http
+GET /me/mailFolders/{id}/messages
+GET /users/{id | userPrincipalName}/mailFolders/{id}/messages
+```
+
 ## Optional query parameters
-This method supports the [OData Query Parameters](http://graph.microsoft.io/docs/overview/query_parameters) to help customize the response.
+This method supports the [OData Query Parameters](http://developer.microsoft.com/en-us/graph/docs/overview/query_parameters) to help customize the response.
 ## Request headers
 | Header       | Value |
 |:---------------|:--------|
 | Authorization  | Bearer <token>. Required.  |
-| Content-Type   | application/json  | 
+ 
 
 ## Request body
 Do not supply a request body for this method.
 ## Response
 If successful, this method returns a `200 OK` response code and collection of [Message](../resources/message.md) objects in the response body.
+
+The default page size for this request is 10 messages.
+
 ## Example
 ##### Request
 Here is an example of the request.

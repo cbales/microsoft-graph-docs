@@ -1,28 +1,28 @@
 # Update event
 
-Update the properties of event object.
+Update the properties of the [event](../resources/event.md) object.
 ## Prerequisites
 One of the following **scopes** is required to execute this API:
 *Calendars.ReadWrite*
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-PATCH /me/events/<id>
-PATCH /users/<id | userPrincipalName>/events/<id>
-PATCH /groups/<id>/events/<id>
+PATCH /me/events/{id}
+PATCH /users/{id | userPrincipalName}/events/{id}
+PATCH /groups/{id}/events/{id}
 
-PATCH /me/calendar/events/<id>
-PATCH /users/<id | userPrincipalName>/calendar/events/<id>
-PATCH /groups/<id>/calendar/events/<id>
+PATCH /me/calendar/events/{id}
+PATCH /users/{id | userPrincipalName}/calendar/events/{id}
+PATCH /groups/{id}/calendar/events/{id}
 
-PATCH /me/calendars/<id>/events/<id>
-PATCH /users/<id | userPrincipalName>/calendars/<id>/events/<id>
+PATCH /me/calendars/{id}/events/{id}
+PATCH /users/{id | userPrincipalName}/calendars/{id}/events/{id}
 
-PATCH /me/calendargroup/calendars/<id>/events/<id>
-PATCH /users/<id | userPrincipalName>/calendargroup/calendars/<id>/events/<id>
+PATCH /me/calendargroup/calendars/{id}/events/{id}
+PATCH /users/{id | userPrincipalName}/calendargroup/calendars/{id}/events/{id}
 
-PATCH /me/calendargroups/<id>/calendars/<id>/events/<id>
-PATCH /users/<id | userPrincipalName>/calendargroups/<id>/calendars/<id>/events/<id>
+PATCH /me/calendargroups/{id}/calendars/{id}/events/{id}
+PATCH /users/{id | userPrincipalName}/calendargroups/{id}/calendars/{id}/events/{id}
 ```
 ## Request headers
 | Name       | Type | Description|
@@ -51,6 +51,9 @@ In the request body, supply the values for relevant fields that should be update
 |start|DateTimeTimeZone|The start time of the event. <br/><br/>By default, the start time is in UTC. You can specify an optional time zone in StartTimeZone, express the start time in that time zone, and include a time offset from UTC. Note that if you use StartTimeZone, you must specify a value for EndTimeZone as well.<br/><br/>This example specifies February 25, 2015, 7:34pm in Pacific Standard Time: "2015-02-25T19:34:00-08:00".  |
 |subject|String|The text of the event's subject line.|
 
+Since the **event** resource supports [extensions](../../../concepts/extensibility_overview.md), you can use the `PATCH` operation to 
+add, update, or delete your own app-specific data in custom properties of an extension in an existing **event** instance.
+
 ## Response
 If successful, this method returns a `200 OK` response code and updated [event](../resources/event.md) object in the response body.
 ## Example
@@ -61,7 +64,7 @@ Here is an example of the request.
   "name": "update_event"
 }-->
 ```http
-PATCH https://graph.microsoft.com/beta/me/events/<id>
+PATCH https://graph.microsoft.com/beta/me/events/{id}
 Content-type: application/json
 Content-length: 285
 
@@ -101,6 +104,14 @@ Content-length: 285
   "isReminderOn": true
 }
 ```
+
+
+## See also
+
+- [Add custom data to resources using extensions](../../../concepts/extensibility_overview.md)
+- [Add custom data to users using open extensions (preview)](../../../concepts/extensibility_open_users.md)
+- [Add custom data to groups using schema extensions (preview)](../../../concepts/extensibility_schema_groups.md)
+
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
 2015-10-25 14:57:30 UTC -->

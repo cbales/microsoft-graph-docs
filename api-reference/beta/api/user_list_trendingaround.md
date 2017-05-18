@@ -2,6 +2,8 @@
 
 Calculated insight that returns the list of items trending around a user.
 
+**Note:** This API will be deprecated and replaced by the [Trending API](../resources/insights_trending.md).
+
 ## Prerequisites
 The following **scopes** are required to execute this API: 
 *Sites.Read.All*
@@ -9,12 +11,12 @@ The following **scopes** are required to execute this API:
 ## HTTP request
 ```http
 GET /me/trendingAround
-GET /users/<id | userPrincipalName>/trendingAround
+GET /users/{id | userPrincipalName}/trendingAround
 GET /drive/root/createdByUser/trendingAround
 GET /drive/root/lastModifiedByUser/trendingAround
 ```
 ## Optional query parameters
-This method supports the [OData Query Parameters](http://graph.microsoft.io/docs/overview/query_parameters) to help customize the response.
+This method supports the [OData Query Parameters](http://developer.microsoft.com/en-us/graph/docs/overview/query_parameters) to help customize the response.
 
 ## Request headers
 | Header         | Value                      |

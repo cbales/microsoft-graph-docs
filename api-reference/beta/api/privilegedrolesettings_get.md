@@ -9,10 +9,10 @@ The requestor needs to have one of the following roles: _Privileged Role Adminis
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /privilegedRoles/<id>/settings
+GET /privilegedRoles/{id}/settings
 ```
 ## Optional query parameters
-This method supports the [OData Query Parameters](http://graph.microsoft.io/docs/overview/query_parameters) to help customize the response.
+This method supports the [OData Query Parameters](http://developer.microsoft.com/en-us/graph/docs/overview/query_parameters) to help customize the response.
 
 ## Request headers
 | Name      |Description|
@@ -31,7 +31,7 @@ Here is an example of the request.
   "name": "get_privilegedrolesettings"
 }-->
 ```http
-GET https://graph.microsoft.com/beta/privilegedRoles/<id>/settings
+GET https://graph.microsoft.com/beta/privilegedRoles/{id}/settings
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.

@@ -1,5 +1,7 @@
 # List tasks
 
+>**Important:** This API is deprecated and will be removed on May 26th, 2017. We recommend that you use [List plannerTasks](plannerPlan_list_tasks.md) API.
+
 Retrieve a list of task objects.
 ## Prerequisites
 One of the following **scopes** is required to execute this API:
@@ -9,7 +11,7 @@ Group.Read.All, Group.ReadWrite.All
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /plans/<id>/tasks
+GET /plans/{id}/tasks
 ```
 ## Optional query parameters
 |Name|Value|Description|
@@ -33,7 +35,7 @@ Here is an example of the request.
   "name": "get_tasks"
 }-->
 ```http
-GET https://graph.microsoft.com/beta/plans/<id>/tasks
+GET https://graph.microsoft.com/beta/plans/{id}/tasks
 ```
 ##### Response
 Here is an example of the response. 

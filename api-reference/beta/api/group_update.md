@@ -1,13 +1,13 @@
 # Update group
 
-Update the properties of a group object.
+Update the properties of a [group](../resources/group.md) object.
 ## Prerequisites
 The following **scope** is required to execute this API: *Group.ReadWrite.All*
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-PATCH /groups/<id>
+PATCH /groups/{id}
 ```
 ## Request headers
 | Name       | Type | Description|
@@ -19,7 +19,6 @@ In the request body, supply the values for relevant fields that should be update
 
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
-|allowExternalSenders|Boolean|Default is **false**. Indicates if external members can send email to group.|
 |autoSubscribeNewMembers|Boolean|Default is **false**. Indicates if new members added to the group will be auto-subscribed to receive email notifications.|
 |description|String|An optional description for the group. |
 |displayName|String|The display name for the group. This property is required when a group is created and it cannot be cleared during updates. Supports $filter and $orderby.|
@@ -29,14 +28,16 @@ In the request body, supply the values for relevant fields that should be update
 |securityEnabled|Boolean|Specifies whether the group is a security group. If the **mailEnabled** property is also true, the group is a mail-enabled security group; otherwise it is a security group. Must be **false** for Office 365 groups. Supports $filter..|
 |visibility|Boolean|Specifies the visibility of an Office 365 group. Possible values are: **Private**, **Public**, or empty (which is interpreted as **Public**).|
 
+Since the **group** resource supports [extensions](../../../concepts/extensibility_overview.md), you can use the `PATCH` operation to 
+add, update, or delete your own app-specific data in custom properties of an extension in an existing **group** instance.
 
 **Note**
 
-- You can update **allowExternalSenders** and **autoSubscribeNewMembers** by specifying only one or both these properties in their own PATCH request, 
+- You can update **autoSubscribeNewMembers** by specifying it in its own PATCH request, 
 without including the other properties in the table above.
 - Only a subset of the group API pertaining to core group administration and management support application 
-and delegated permissions. All other members of the group API, including updating  **allowExternalSenders** and **autoSubscribeNewMembers**, 
-support only delegated permissions. See [known issues](https://graph.microsoft.io/en-us/docs/overview/release_notes#group-permission-scopes) for examples.
+and delegated permissions. All other members of the group API, including updating  **autoSubscribeNewMembers**, 
+support only delegated permissions. See [known issues](https://developer.microsoft.com/en-us/graph/docs/overview/release_notes#group-permission-scopes) for examples.
 
 
 ## Response
@@ -49,7 +50,7 @@ Here is an example of the request.
   "name": "update_group"
 }-->
 ```http
-PATCH https://graph.microsoft.com/beta/groups/<id>
+PATCH https://graph.microsoft.com/beta/groups/{id}
 Content-type: application/json
 Content-length: 211
 
@@ -87,6 +88,13 @@ Content-length: 211
   "mailNickname": "mailNickname-value"
 }
 ```
+
+## See also
+
+- [Add custom data to resources using extensions](../../../concepts/extensibility_overview.md)
+- [Add custom data to users using open extensions (preview)](../../../concepts/extensibility_open_users.md)
+- [Add custom data to groups using schema extensions (preview)](../../../concepts/extensibility_schema_groups.md)
+
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
 2015-10-25 14:57:30 UTC -->

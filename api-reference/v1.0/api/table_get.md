@@ -10,7 +10,7 @@ GET /workbook/tables(<id|name>)
 GET /workbook/worksheets(<id|name>)/tables(<id|name>)
 ```
 ## Optional query parameters
-This method supports the [OData Query Parameters](http://graph.microsoft.io/docs/overview/query_parameters) to help customize the response.
+This method supports the [OData Query Parameters](http://developer.microsoft.com/en-us/graph/docs/overview/query_parameters) to help customize the response.
 
 ## Request headers
 | Name      |Description|
@@ -30,7 +30,7 @@ Here is an example of the request.
   "name": "get_table"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/drive/items/<id>/workbook/tables(<id|name>)
+GET https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/tables(<id|name>)
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
@@ -45,7 +45,7 @@ Content-type: application/json
 Content-length: 109
 
 {
-  "id": 99,
+  "id": "99",
   "name": "name-value",
   "showHeaders": true,
   "showTotals": true,

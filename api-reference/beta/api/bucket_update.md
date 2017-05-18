@@ -1,5 +1,7 @@
 # Update bucket
 
+>**Important:** This API is deprecated and will be removed on May 26th, 2017. We recommend that you use [Update plannerBucket](plannerBucket_update.md) API.
+
 Update the properties of bucket object.
 ## Prerequisites
 One of the following **scopes** is required to execute this API:
@@ -9,7 +11,7 @@ Group.ReadWrite.All
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-PATCH /buckets/<id>
+PATCH /buckets/{id}
 ```
 ## Request headers
 | Name       | Type | Description|
@@ -37,7 +39,7 @@ Here is an example of the request.
   "name": "update_bucket"
 }-->
 ```http
-PATCH https://graph.microsoft.com/beta/buckets/<id>
+PATCH https://graph.microsoft.com/beta/buckets/{id}
 Content-type: application/json
 Content-length: 108
 If-Match: W/"JzEtMDAwMDAwMDAwMDAwMDAwOC8yMDE1LTEwLTIyVDE4OjExOjU2LjExMzU1NDYrMDA6MDAn"

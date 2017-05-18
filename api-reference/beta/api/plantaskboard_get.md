@@ -1,5 +1,7 @@
 # Get planTaskBoard
 
+>**Important:** This API is deprecated and will be removed on May 26th, 2017.
+
 Retrieve the properties and relationships of plantaskboard object.
 ## Prerequisites
 One of the following **scopes** is required to execute this API:
@@ -9,9 +11,9 @@ Group.Read.All, Group.ReadWrite.All
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /plans/<id>/bucketTaskBoard
-GET /plans/<id>/progressTaskBoard
-GET /plans/<id>/assignedToTaskBoard
+GET /plans/{id}/bucketTaskBoard
+GET /plans/{id}/progressTaskBoard
+GET /plans/{id}/assignedToTaskBoard
 ```
 ## Optional query parameters
 None
@@ -33,7 +35,7 @@ Here is an example of the request.
   "name": "get_plantaskboard"
 }-->
 ```http
-GET https://graph.microsoft.com/beta/plans/<id>/bucketTaskBoard
+GET https://graph.microsoft.com/beta/plans/{id}/bucketTaskBoard
 ```
 ##### Response
 Here is an example of the response.

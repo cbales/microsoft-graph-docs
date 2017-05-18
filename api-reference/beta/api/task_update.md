@@ -1,5 +1,7 @@
 # Update task
 
+>**Important:** This API is deprecated and will be removed on May 26th, 2017. We recommend that you use [Update plannerTask](plannerTask_update.md) API.
+
 Update the properties of task object.
 ## Prerequisites
 One of the following **scopes** is required to execute this API:
@@ -9,7 +11,7 @@ Group.ReadWrite.All
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-PATCH /tasks/<id>
+PATCH /tasks/{id}
 
 ```
 ## Request headers
@@ -45,7 +47,7 @@ Here is an example of the request.
   "name": "update_task"
 }-->
 ```http
-PATCH https://graph.microsoft.com/beta/tasks/<id>
+PATCH https://graph.microsoft.com/beta/tasks/{id}
 Content-type: application/json
 Content-length: 663
 If-Match: W/"JzEtMDAwMDAwMDAwMDAwMDAwOC8yMDE1LTEwLTIyVDE4OjExOjU2LjExMzU1NDYrMDA6MDAn"

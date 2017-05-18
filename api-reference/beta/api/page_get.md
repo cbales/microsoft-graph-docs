@@ -2,12 +2,21 @@
 
 Retrieve the properties and relationships of a [page](../resources/page.md) object.
 
+**Getting page information**
+
+Access a page's metadata by page identifier:
+
+```
+GET /me/notes/pages/{id}
+```
+
 **Getting page content**
 
 You can use the page's `content` endpoint to get the HTML content of a page:
 
 ```
-GET /me/notes/pages/<id>/content[?includeIDs=true]
+GET /me/notes/pages/{id}/content[?includeIDs=true]
+GET /me/notes/pages/{id}/$value[?includeIDs=true]
 ```
 
 The `includeIDs=true` query option is used to [update pages](../api/page_update.md).
@@ -18,12 +27,12 @@ Notes.Read, Notes.ReadWrite.CreatedByApp, Notes.ReadWrite, Notes.Read.All, or No
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /me/notes/pages/<id>
-GET /users/<id | userPrincipalName>/notes/pages/<id>
-GET /groups/<id>/notes/pages/<id>
+GET /me/notes/pages/{id}
+GET /users/{id | userPrincipalName}/notes/pages/{id}
+GET /groups/{id}/notes/pages/{id}
 ```
 ## Optional query parameters
-This method supports the `select` and `expand` [OData Query Parameters](http://graph.microsoft.io/docs/overview/query_parameters) to help customize the response.
+This method supports the `select` and `expand` [OData Query Parameters](http://developer.microsoft.com/en-us/graph/docs/overview/query_parameters) to help customize the response.
 
 The default response expands `parentSection` and selects the section's `id`, `name`, and `self` properties. Valid `expand` values for pages are `parentNotebook` and `parentSection`.
 
@@ -42,7 +51,7 @@ If successful, this method returns a `200 OK` response code and the [page](../re
 Here is an example of the request.
  <!-- { "blockType": "ignored" } -->
 ```http
-GET https://graph.microsoft.com/beta/me/notes/pages/<id>
+GET https://graph.microsoft.com/beta/me/notes/pages/{id}
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here is truncated for brevity. All of the properties will be returned from an actual call.

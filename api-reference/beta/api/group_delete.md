@@ -1,17 +1,20 @@
 # Delete group
 
-Delete group.
+Deletes a group.
+
+When a group is deleted, the item is added to [deleted items](../resources/directory.md). The group will remain in deleted items for up to 30 days. A group can be fully restored from deleted items during the 30 days. After 30 days, deleted items are permanently deleted.
+
 ## Prerequisites
-One of the following **scopes** is required to execute this API: _Group.ReadWrite.All_
+The following **scope** is required to execute this API: *Group.ReadWrite.All*
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-DELETE /groups/<id>
+DELETE /groups/{id}
 ```
 ## Request headers
 | Name       | Type | Description|
 |:---------------|:--------|:----------|
-| Authorization  | string  | Bearer <token>. Required. |
+| Authorization  | string  | Bearer &lt;token&gt; *Required* |
 
 ## Request body
 Do not supply a request body for this method.
@@ -28,7 +31,7 @@ Here is an example of the request.
   "name": "delete_group"
 }-->
 ```http
-DELETE https://graph.microsoft.com/beta/groups/<id>
+DELETE https://graph.microsoft.com/beta/groups/{id}
 ```
 ##### Response
 Here is an example of the response. 

@@ -1,20 +1,35 @@
 # Get eventMessage
 
-Retrieve the properties and relationships of eventmessage object.
+Retrieve the properties and relationships of the [eventMessage](../resources/eventmessage.md) object.
+
+### Get the event message body in HTML or text format
+
+Event message bodies can be in HTML or text format.
+
+You can use the `Prefer: outlook.body-content-type` header to specify the desired format returned in the **body** and **uniqueBody** properties in a `GET` request:
+
+- Specify `Prefer: outlook.body-content-type="text"` to get a event message body returned in text format.
+- Specify `Prefer: outlook.body-content-type="html"`, or just skip the header, to return the event message body in HTML format.
+
+If you specify either header, the response will include the corresponding `Preference-Applied` header as confirmation:
+
+- For text format requests: `Preference-Applied: outlook.body-content-type="text"`
+- For HTML format requests: `Preference-Applied: outlook.body-content-type="html"`
+
 ## Prerequisites
 One of the following **scopes** is required to execute this API:
 *Mail.Read*
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /me/messages/<id>
-GET /users/<id | userPrincipalName>/messages/<id>
+GET /me/messages/{id}
+GET /users/{id | userPrincipalName}/messages/{id}
 
-GET /me/mailFolders/<id>/messages/<id>
-GET /users/<id | userPrincipalName>/mailFolders/<id>/messages/<id>
+GET /me/mailFolders/{id}/messages/{id}
+GET /users/{id | userPrincipalName}/mailFolders/{id}/messages/{id}
 ```
 ## Optional query parameters
-This method supports the [OData Query Parameters](http://graph.microsoft.io/docs/overview/query_parameters) to help customize the response.
+This method supports the [OData Query Parameters](http://developer.microsoft.com/en-us/graph/docs/overview/query_parameters) to help customize the response.
 ## Request headers
 | Name       | Type | Description|
 |:-----------|:------|:----------|
@@ -32,7 +47,7 @@ Here is an example of the request.
   "name": "get_eventmessage"
 }-->
 ```http
-GET https://graph.microsoft.com/beta/me/messages/<id>
+GET https://graph.microsoft.com/beta/me/messages/{id}
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
@@ -52,7 +67,7 @@ Content-length: 248
   "hasAttachments": true,
   "subject": "subject-value",
   "body": {
-    "contentType": "",
+    "contentType": "html",
     "content": "content-value"
   },
   "bodyPreview": "bodyPreview-value",

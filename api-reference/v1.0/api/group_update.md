@@ -7,7 +7,7 @@ The following **scope** is required to execute this API: *Group.ReadWrite.All*
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-PATCH /groups/<id>
+PATCH /groups/{id}
 ```
 ## Request headers
 | Name       | Type | Description|
@@ -19,7 +19,6 @@ In the request body, supply the values for relevant fields that should be update
 
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
-|allowExternalSenders|Boolean|Default is **false**. Indicates if external members can send email to group.|
 |autoSubscribeNewMembers|Boolean|Default is **false**. Indicates if new members added to the group will be auto-subscribed to receive email notifications.|
 |description|String|An optional description for the group. |
 |displayName|String|The display name for the group. This property is required when a group is created and it cannot be cleared during updates. Supports $filter and $orderby.|
@@ -33,11 +32,11 @@ In the request body, supply the values for relevant fields that should be update
 
 **Note**
 
-- You can update **allowExternalSenders** and **autoSubscribeNewMembers** by specifying only one or both these properties in their own PATCH request, 
+- You can update **autoSubscribeNewMembers** by specifying it in its own PATCH request, 
 without including the other properties in the table above.
 - Only a subset of the group API pertaining to core group administration and management support application 
-and delegated permissions. All other members of the group API, including updating  **allowExternalSenders** and **autoSubscribeNewMembers**, 
-support only delegated permissions. See [known issues](https://graph.microsoft.io/en-us/docs/overview/release_notes#group-permission-scopes) for examples.
+and delegated permissions. All other members of the group API, including updating  **autoSubscribeNewMembers**, 
+support only delegated permissions. See [known issues](https://developer.microsoft.com/en-us/graph/docs/overview/release_notes#group-permission-scopes) for examples.
 
 ## Response
 If successful, this method returns a `200 OK` response code and updated [group](../resources/group.md) object in the response body.
@@ -49,7 +48,7 @@ Here is an example of the request.
   "name": "update_group"
 }-->
 ```http
-PATCH https://graph.microsoft.com/v1.0/groups/<id>
+PATCH https://graph.microsoft.com/v1.0/groups/{id}
 Content-type: application/json
 Content-length: 211
 

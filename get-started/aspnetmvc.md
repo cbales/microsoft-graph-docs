@@ -12,7 +12,7 @@ The [Azure AD v2.0 endpoint](https://azure.microsoft.com/en-us/documentation/art
 
 **Don't feel like building an app?** Use the [Microsoft Graph quick start](https://graph.microsoft.io/en-us/getting-started) to get up and running fast.
 
-To download a version of the Connect sample that uses the Azure AD endpoint and accesses Microsoft Graph using REST calls, see [Office 365 Connect ASP.NET MVC sample](https://github.com/microsoftgraph/aspnet-connect-rest-sample).
+To download a version of the Connect sample that uses the Azure AD endpoint and accesses Microsoft Graph using REST calls, see [Office 365 Connect ASP.NET MVC sample](https://github.com/microsoftgraph/aspnet-connect-rest-sample/tree/last_v1_auth).
 
 
 ## Prerequisites
@@ -58,7 +58,7 @@ In this step, you'll register an app on the Microsoft App Registration Portal. T
 
 3. Locate the app configuration keys in the **appSettings** element. Replace the ENTER_YOUR_CLIENT_ID and ENTER_YOUR_SECRET placeholder values with the values you just copied.
 
-The redirect URI is the URL of the project that you registered. The requested [permission scopes](https://graph.microsoft.io/en-us/docs/authorization/permission_scopes) allow the app to get user profile information and send an email.
+The redirect URI is the URL of the project that you registered. The requested [permission scopes](https://developer.microsoft.com/en-us/graph/docs/authorization/permission_scopes) allow the app to get user profile information and send an email.
 
 
 ## Authenticate the user and get an access token

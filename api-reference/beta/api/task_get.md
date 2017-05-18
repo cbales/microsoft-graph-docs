@@ -1,5 +1,7 @@
 # Get task
 
+>**Important:** This API is deprecated and will be removed on May 26th, 2017. We recommend that you use [Get plannerTask](plannerTask_get.md) API.
+
 Retrieve the properties and relationships of task object.
 ## Prerequisites
 One of the following **scopes** is required to execute this API:
@@ -9,7 +11,7 @@ Group.Read.All, Group.ReadWrite.All
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /tasks/<id>
+GET /tasks/{id}
 
 ```
 ## Optional query parameters
@@ -32,7 +34,7 @@ Here is an example of the request.
   "name": "get_task"
 }-->
 ```http
-GET https://graph.microsoft.com/beta/tasks/<id>
+GET https://graph.microsoft.com/beta/tasks/{id}
 ```
 ##### Response
 Here is an example of the response. 

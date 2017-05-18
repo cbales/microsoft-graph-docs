@@ -7,12 +7,12 @@ Notes.Read, Notes.ReadWrite.CreatedByApp, Notes.ReadWrite, Notes.Read.All, or No
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /me/notes/sections/<id>/pages
-GET /users/<id | userPrincipalName>/notes/sections/<id>/pages
-GET /groups/<id>/notes/sections/<id>/pages
+GET /me/notes/sections/{id}/pages
+GET /users/{id | userPrincipalName}/notes/sections/{id}/pages
+GET /groups/{id}/notes/sections/{id}/pages
 ```
 ## Optional query parameters
-This method supports the [OData Query Parameters](http://graph.microsoft.io/docs/overview/query_parameters) to help customize the response.
+This method supports the [OData Query Parameters](http://developer.microsoft.com/en-us/graph/docs/overview/query_parameters) to help customize the response.
 
 The default query for pages returns the top 20 pages ordered by `lastModifiedTime desc`. If the default query returns more than 20 pages, the response contains an `@odata.nextLink` that you can use to page through the result set. The maximum number of pages returned for a `top` request is 100.
 
@@ -33,7 +33,7 @@ If successful, this method returns a `200 OK` response code and a collection of 
 Here is an example of the request.
 <!-- { "blockType": "ignored" } -->
 ```http
-GET https://graph.microsoft.com/beta/me/notes/sections/<id>/pages
+GET https://graph.microsoft.com/beta/me/notes/sections/{id}/pages
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here is truncated for brevity. All of the properties will be returned from an actual call.

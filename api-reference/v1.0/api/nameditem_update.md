@@ -11,7 +11,7 @@ PATCH /workbook/names(<name>)
 ## Optional request headers
 | Name       | Description|
 |:-----------|:-----------|
-| Authorization  | Bearer <code>|
+| Authorization  | Bearer {code}|
 
 
 ## Request body
@@ -20,6 +20,7 @@ In the request body, supply the values for relevant fields that should be update
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
 |visible|boolean|Specifies whether the object is visible or not.|
+|comment|	string	|Represents the comment associated with this name.|
 
 ## Response
 If successful, this method returns a `200 OK` response code and updated [NamedItem](../resources/nameditem.md) object in the response body.
@@ -31,13 +32,15 @@ Here is an example of the request.
   "name": "update_nameditem"
 }-->
 ```http
-PATCH https://graph.microsoft.com/v1.0/me/drive/items/<id>/workbook/names(<name>)
+PATCH https://graph.microsoft.com/v1.0/me/drive/items/{id}/workbook/names(<name>)
 Content-type: application/json
 Content-length: 87
 
 {
   "name": "name-value",
   "type": "type-value",
+  "scope": "scope-value",
+  "comment": "comment-value",
   "value": {
   },
   "visible": true

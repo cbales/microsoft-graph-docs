@@ -1,5 +1,7 @@
 # Get taskBoardTaskFormat
 
+>**Important:** This API is deprecated and will be removed on May 26th, 2017. We recommend that you use [Get plannerAssignedToTaskBoardTaskFormat](plannerAssignedToTaskBoardTaskFormat_get.md), [Get plannerBucketTaskBoardTaskFormat](plannerBucketTaskBoardTaskFormat_get.md), and [Get plannerProgressTaskBoardTaskFormat](plannerProgressTaskBoardTaskFormat_get.md) APIs.
+
 Retrieve the properties and relationships of taskboardtaskformat object.
 ## Prerequisites
 One of the following **scopes** is required to execute this API:
@@ -9,9 +11,9 @@ Group.Read.All, Group.ReadWrite.All
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /tasks/<id>/bucketTaskBoardFormat
-GET /tasks/<id>/progressTaskBoardFormat
-GET /tasks/<id>/assignedToTaskBoardFormat
+GET /tasks/{id}/bucketTaskBoardFormat
+GET /tasks/{id}/progressTaskBoardFormat
+GET /tasks/{id}/assignedToTaskBoardFormat
 ```
 ## Optional query parameters
 None
@@ -33,7 +35,7 @@ Here is an example of the request.
   "name": "get_taskboardtaskformat"
 }-->
 ```http
-GET https://graph.microsoft.com/beta/tasks/<id>/bucketTaskBoardFormat
+GET https://graph.microsoft.com/beta/tasks/{id}/bucketTaskBoardFormat
 ```
 ##### Response
 Here is an example of the response. 

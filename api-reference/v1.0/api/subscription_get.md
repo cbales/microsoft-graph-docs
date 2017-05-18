@@ -6,10 +6,10 @@ One of the following **scopes**, depending on the target resource, are required 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /subscriptions/<subscriptionId>
+GET /subscriptions/{subscriptionId}
 ```
 ## Optional query parameters
-This method supports the [OData Query Parameters](http://graph.microsoft.io/docs/overview/query_parameters) to help customize the response.
+This method supports the [OData Query Parameters](http://developer.microsoft.com/en-us/graph/docs/overview/query_parameters) to help customize the response.
 
 ## Request headers
 | Name       | Type | Description|
@@ -28,7 +28,7 @@ Here is an example of the request.
   "name": "get_subscription"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/subscriptions/<subscriptionId>
+GET https://graph.microsoft.com/v1.0/subscriptions/{subscriptionId}
 ```
 ##### Response
 Here is an example of the response.

@@ -1,5 +1,7 @@
 # Get planDetails
 
+>**Important:** This API is deprecated and will be removed on May 26th, 2017. We recommend that you use [Get plannerPlanDetails](plannerplandetails_get.md) API.
+
 Retrieve the properties and relationships of plandetails object.
 ## Prerequisites
 One of the following **scopes** is required to execute this API:
@@ -9,7 +11,7 @@ Group.Read.All, Group.ReadWrite.All
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /plans/<id>/details
+GET /plans/{id}/details
 
 ```
 ## Optional query parameters
@@ -32,7 +34,7 @@ Here is an example of the request.
   "name": "get_plandetails"
 }-->
 ```http
-GET https://graph.microsoft.com/beta/plans/<id>/details
+GET https://graph.microsoft.com/beta/plans/{id}/details
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.

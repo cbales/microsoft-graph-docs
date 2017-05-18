@@ -8,19 +8,19 @@ One of the following **scopes** is required to execute this API:
 <!-- { "blockType": "ignored" } -->
 A [contact](../resources/contact.md) from user's default [contactFolder](../resources/contactfolder.md).
 ```http
-PATCH /me/contacts/<id>
-PATCH /users/<id | userPrincipalName>/contacts/<id>
+PATCH /me/contacts/{id}
+PATCH /users/{id | userPrincipalName}/contacts/{id}
 ```
 A [contact](../resources/contact.md) from a user's top level [contactFolder](../resources/contactfolder.md).
 ```http
-PATCH /me/contactFolders/<id>/contacts/<id>
-PATCH /users/<id | userPrincipalName>/contactFolders/<id>/contacts/<id>
+PATCH /me/contactFolders/{id}/contacts/{id}
+PATCH /users/{id | userPrincipalName}/contactFolders/{id}/contacts/{id}
 ```
 A [contact](../resources/contact.md) contained in a child folder of a [contactFolder](../resources/mailfolder.md).  The 
 example below shows one level of nesting, but a contact can be located in a child of a child and so on.
 ```http
-PATCH /me/contactFolder/<id>/childFolders/<id>/.../contacts/<id>
-PATCH /users/<id | userPrincipalName>/contactFolders/<id>/childFolders/<id>/contacts/<id>
+PATCH /me/contactFolder/{id}/childFolders/{id}/.../contacts/{id}
+PATCH /users/{id | userPrincipalName}/contactFolders/{id}/childFolders/{id}/contacts/{id}
 ```
 ## Request headers
 | Header       | Value |
@@ -66,6 +66,9 @@ In the request body, supply the values for relevant fields that should be update
 |yomiGivenName|String|The phonetic Japanese given name (first name) of the contact. This property is optional.|
 |yomiSurname|String|The phonetic Japanese surname (last name)  of the contact. This property is optional.|
 
+Since the **contact** resource supports [extensions](../../../concepts/extensibility_overview.md), you can use the `PATCH` operation to 
+add, update, or delete your own app-specific data in custom properties of an extension in an existing **contact** instance.
+
 ## Response
 If successful, this method returns a `200 OK` response code and updated [contact](../resources/contact.md) object in the response body.
 ## Example
@@ -76,7 +79,7 @@ Here is an example of the request.
   "name": "update_contact"
 }-->
 ```http
-PATCH https://graph.microsoft.com/beta/me/contacts/<id>
+PATCH https://graph.microsoft.com/beta/me/contacts/{id}
 Content-type: application/json
 Content-length: 1977
 
@@ -166,6 +169,15 @@ Content-length: 1977
   "weddingAnniversary": null
 }
 ```
+
+## See also
+
+- [Add custom data to resources using extensions](../../../concepts/extensibility_overview.md)
+- [Add custom data to users using open extensions (preview)](../../../concepts/extensibility_open_users.md)
+<!--
+- [Add custom data to groups using schema extensions (preview)](../../../concepts/extensibility_schema_groups.md)
+-->
+
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
 2015-10-25 14:57:30 UTC -->

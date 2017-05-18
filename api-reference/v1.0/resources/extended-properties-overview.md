@@ -17,12 +17,12 @@ Or, in the following Office 365 group resources:
 - group [calendar](../resources/calendar.md)
 - group [post](../resources/post.md) 
 
-## Use extended properties or Office 365 Data Extensions?
+## Use extended properties or open extensions?
 
-In most common scenarios, you should be able to use Office 365 Data Extensions (represented by [openTypeExtension](../resources/opentypeextension.md))
-to store and access custom data for resource instances in a user's mailbox. Use extended properties only if you
+In most common scenarios, you should be able to use open extensions (represented by [openTypeExtension](../resources/opentypeextension.md), formerly known as 
+Office 365 data extensions) to store and access custom data for resource instances in a user's mailbox. Use extended properties only if you
 need to access custom data for Outlook MAPI properties that are not already exposed in the 
-[Microsoft Graph API metadata](http://graph.microsoft.io/en-us/docs/overview/call_api). 
+[Microsoft Graph API metadata](http://developer.microsoft.com/en-us/graph/docs/overview/call_api). 
 
 ## Types of extended properties
 
@@ -70,10 +70,12 @@ in \[MS-OXPROPS\] Microsoft Corporation, ["Exchange Server Protocols Master Prop
 ### REST API operations
  
 Single-value extended property operations:
+
 - [Create an extended property in a new or existing resource instance](../api/singlevaluelegacyextendedproperty_post_singlevalueextendedproperties.md)
 - [Get one or a collection of resource instances with an extended property using `$expand` or `$filter`](../api/singlevaluelegacyextendedproperty_get.md)
 
 Multi-value extended property operations:
+
 - [Create an extended property in a new or existing resource instance](../api/multivaluelegacyextendedproperty_post_multivalueextendedproperties.md)
 - [Get a resource instance with an extended property using `$expand`](../api/multivaluelegacyextendedproperty_get.md)
 

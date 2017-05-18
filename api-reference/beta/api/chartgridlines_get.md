@@ -11,7 +11,7 @@ GET /workbook/worksheets(<id|name>)/charts(<name>)/axes/valueaxis/majorgridlines
 GET /workbook/worksheets(<id|name>)/charts(<name>)/axes/seriesaxis/majorgridlines
 ```
 ## Optional query parameters
-This method supports the [OData Query Parameters](http://graph.microsoft.io/docs/overview/query_parameters) to help customize the response.
+This method supports the [OData Query Parameters](http://developer.microsoft.com/en-us/graph/docs/overview/query_parameters) to help customize the response.
 
 ## Request headers
 | Name      |Description|
@@ -31,7 +31,7 @@ Here is an example of the request.
   "name": "get_chartgridlines"
 }-->
 ```http
-GET https://graph.microsoft.com/beta/me/drive/items/<id>/workbook/worksheets(<id|name>)/charts(<name>)/axes/valueaxis/minorgridlines
+GET https://graph.microsoft.com/beta/me/drive/items/{id}/workbook/worksheets(<id|name>)/charts(<name>)/axes/valueaxis/minorgridlines
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.

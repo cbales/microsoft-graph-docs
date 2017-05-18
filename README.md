@@ -12,7 +12,7 @@ Thank you for your interest in Microsoft Graph documentation!
 
 ## Ways to contribute
 
-You can contribute to [Microsoft Graph documentation](http://graph.microsoft.io/docs) in these ways:
+You can contribute to [Microsoft Graph documentation](http://developer.microsoft.com/en-us/graph/docs) in these ways:
 
 * Contribute to articles via the [public Microsoft Graph developer docs repo](https://github.com/microsoftgraph/microsoft-graph-docs)
 * Report documentation bugs via [GitHub Issues](https://github.com/microsoftgraph/microsoft-graph-docs/issues)
@@ -57,7 +57,7 @@ Articles within each topic are named by MSDN GUID, not by title. This is a side 
 3.	Create your own fork of this repository. To do this, at the top of the page,  click the **Fork** button.
 4.	Copy your fork to your local machine. To do this, go open GitBash. At the command prompt enter:
 
-		git clone https://github.com/<your user name>/microsoft-graph-docs.git
+		git clone https://github.com/{your user name}/microsoft-graph-docs.git
 
 	Next, create a reference to the root repository by entering these commands:
 
@@ -143,17 +143,12 @@ Once your changes are successfully merged into the central repository, you can d
 To delete your branch follow these steps:
 
 1.	In GitBash type `git checkout master` at the command prompt.  This ensures that you aren't in the branch to be deleted (which isn't allowed).
-2.	Next, type `git branch -d <branch name>` at the command prompt.  This deletes the branch on your local machine only if it has been successfully merged to the upstream repository. (You can override this behavior with the `–D` flag, but first be sure you want to do this.)
+2.	Next, type `git branch -d <branch name>` at the command prompt.  This deletes the branch on your local machine only if it has been successfully merged to the upstream repository. (You can override this behavior with the `???D` flag, but first be sure you want to do this.)
 3.	Finally, type `git push origin :<branch name>` at the command prompt (a space before the colon and no space after it).  This will delete the branch on your github fork.  
 
 Congratulations, you have successfully contributed to the project.
 
 ## How to use Markdown to format your topic
-
-### Article template
-
-The [markdown template](/articles/0-markdown-template-for-new-articles.md) contains the basic Markdown for a topic that includes a table of contents, sections with subheadings, links to other Office developer topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. 
-
 
 ### Standard Markdown
 

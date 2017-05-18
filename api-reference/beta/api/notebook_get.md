@@ -7,12 +7,12 @@ Notes.Read, Notes.ReadWrite.CreatedByApp, Notes.ReadWrite, Notes.Read.All, or No
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /me/notes/notebooks/<id>
-GET /users/<id | userPrincipalName>/notes/notebooks/<id>
-GET /groups/<id>/notes/notebooks/<id>
+GET /me/notes/notebooks/{id}
+GET /users/{id | userPrincipalName}/notes/notebooks/{id}
+GET /groups/{id}/notes/notebooks/{id}
 ```
 ## Optional query parameters
-This method supports the `select` and `expand` [OData Query Parameters](http://graph.microsoft.io/docs/overview/query_parameters) to help customize the response.
+This method supports the `select` and `expand` [OData Query Parameters](http://developer.microsoft.com/en-us/graph/docs/overview/query_parameters) to help customize the response.
 
 Valid `expand` values for notebooks are `sections` and `sectionGroups`.
 
@@ -34,7 +34,7 @@ Here is an example of the request.
   "name": "get_notebook"
 }-->
 ```http
-GET https://graph.microsoft.com/beta/me/notes/notebooks/<id>
+GET https://graph.microsoft.com/beta/me/notes/notebooks/{id}
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here is truncated for brevity. All of the properties will be returned from an actual call.

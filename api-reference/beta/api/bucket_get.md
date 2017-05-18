@@ -1,5 +1,7 @@
 # Get bucket
 
+>**Important:** This API is deprecated and will be removed on May 26th, 2017. We recommend that you use [Get plannerBucket](plannerBucket_get.md) API.
+
 Retrieve the properties and relationships of bucket object.
 ## Prerequisites
 One of the following **scopes** is required to execute this API:
@@ -9,7 +11,7 @@ Group.Read.All, Group.ReadWrite.All
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /buckets/<id>
+GET /buckets/{id}
 
 ```
 ## Optional query parameters
@@ -32,7 +34,7 @@ Here is an example of the request.
   "name": "get_bucket"
 }-->
 ```http
-GET https://graph.microsoft.com/beta/buckets/<id>
+GET https://graph.microsoft.com/beta/buckets/{id}
 ```
 ##### Response
 Here is an example of the response.

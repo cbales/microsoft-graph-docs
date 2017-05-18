@@ -1,45 +1,42 @@
-# Update data extension
+# Update open extension
 
-Update a data extension ([openTypeExtension](../resources/openTypeExtension.md) object) with the properties in the request body:
+Update an open extension ([openTypeExtension](../resources/openTypeExtension.md) object) with the properties in the request body:
 
 - If a property in the request body matches the name of an existing property in the extension, the data in the 
 extension is updated.
 - Otherwise that property and its data are added to the extension. 
 
-The extension can be in a message, event, or contact in the signed-in user's mailbox on Office 365 or
-Outlook.com. Or, it can be an event or post for an Office 365 group. Data in an extension can be primitive types, 
-or arrays of primitive types.
+The data in an extension can be primitive types, or arrays of primitive types.
 
 
 ## Prerequisites
 
-One of the following **scopes** is required to execute this API, depending on the resource you're
-creating the extension in:
+One of the following **permissions** is required to execute this API, depending on the resource that 
+the extension was created in:
 
-- _Mail.ReadWrite_
-- _Calendars.ReadWrite_
-- _Contacts.ReadWrite_
-- _Group.ReadWrite.All_
+|**Supported resource**|**Permission**|**Supported resource**|**Permission** |
+|:-----|:-----|:-----|:-----|
+| [event](../resources/event.md) | _Calendars.ReadWrite_ | [group event](../resources/event.md) | _Calendars.ReadWrite_ | 
+| [group post](../resources/post.md) | _Group.ReadWrite.All_ | [message](../resources/message.md) | _Mail.ReadWrite_ | 
+| [personal contact](../resources/contact.md) | _Contacts.ReadWrite_ |
  
 ## HTTP request
+In the request, identify the resource instance, use the **extensions** 
+navigation property of that instance to identify the extension, and do a `PATCH` on that extension instance.
+
 <!-- { "blockType": "ignored" } -->
-
 ```http
-PATCH /me/messages/<id>/extensions/<extensionId>
-PATCH /users/<id|userPrincipalName>/messages/<id>/extensions/<extensionId>
-PATCH /me/mailFolders/<id>/messages/<id>/extensions/<extensionId>
-
-PATCH /me/events/<id>/extensions/<extensionId>
-PATCH /users/<id|userPrincipalName>/events/<id>/extensions/<extensionId>
-
-PATCH /me/contacts/<id>/extensions/<extensionId>
-PATCH /users/<id|userPrincipalName>/contacts/<id>/extensions/<extensionId>
-
-PATCH /groups/<id>/events/<id>/extensions/<extensionId>
-
-PATCH /groups/<id>/threads/<id>/posts/<id>/extensions/<extensionId>
-PATCH /groups/<id>/conversations/<id>/threads/<id>/posts/<id>/extensions/<extensionId>
+PATCH /users/{id|userPrincipalName}/messages/{id}/extensions/{extensionId}
+PATCH /users/{id|userPrincipalName}/events/{id}/extensions/{extensionId}
+PATCH /users/{id|userPrincipalName}/contacts/{id}/extensions/{extensionId}
+PATCH /groups/{id}/events/{id}/extensions/{extensionId}
+PATCH /groups/{id}/threads/{id}/posts/{id}/extensions/{extensionId}
 ```
+
+>**Note:** The above syntax shows some common ways to identify a resource instance, in order to update an extension in it. 
+All other syntax that allows you to identify these resource instances supports updating open extensions in them in a similar way.
+
+See the [Request body](#request-body) section about including in the request body any custom data to change or add to that extension.
 
 
 ## Parameters

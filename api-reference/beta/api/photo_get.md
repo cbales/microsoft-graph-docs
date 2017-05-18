@@ -9,12 +9,12 @@ One of the following **scopes** is required to execute this API:
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /users/<id | userPrincipalName>/photo
-GET /groups/<id>/photo
+GET /users/{id | userPrincipalName}/photo
+GET /groups/{id}/photo
 GET /drive/root/createdByUser/photo
 ```
 ## Optional query parameters
-This method supports the [OData Query Parameters](http://graph.microsoft.io/docs/overview/query_parameters) to help customize the response.
+This method supports the [OData Query Parameters](http://developer.microsoft.com/en-us/graph/docs/overview/query_parameters) to help customize the response.
 
 ## Request headers
 | Name       | Type | Description|
@@ -33,7 +33,7 @@ Here is an example of the request.
   "name": "get_photo"
 }-->
 ```http
-GET https://graph.microsoft.com/beta/users/<id|userPrincipalName>/photo
+GET https://graph.microsoft.com/beta/users/{id|userPrincipalName}/photo
 ```
 ##### Response
 Here is an example of the response.

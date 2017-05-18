@@ -20,7 +20,7 @@ GET /groups/{group-id}/drive/root/search(q='{search-text}')
 ```
 
 ## Optional query parameters
-This method supports the [OData Query Parameters](http://graph.microsoft.io/docs/overview/query_parameters) to help customize the response.
+This method supports the [OData Query Parameters](http://developer.microsoft.com/en-us/graph/docs/overview/query_parameters) to help customize the response.
 
 ## Request body
 Do not supply a request body for this method.
@@ -128,15 +128,6 @@ Content-type: application/json
     "@odata.nextLink": "https://graph.microsoft.com/beta/me/drive/root/search(query='contoso project')&skipToken=1asdlnjnkj1nalkm!asd"
 }
 ```
-
-## Remarks
-
-**Note:** In OneDrive for Business and SharePoint, search does not return the following properties:
-
-* `parentReference`
-
-
-
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
 2015-10-25 14:57:30 UTC -->

@@ -1,5 +1,7 @@
 # Delete plan
 
+>**Important:** This API is deprecated and will be removed on May 26th, 2017. We recommend that you use [Delete plannerPlan](plannerplan_delete.md) API.
+
 Delete plan.
 ## Prerequisites
 One of the following **scopes** is required to execute this API:
@@ -9,7 +11,7 @@ Group.ReadWrite.All
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-DELETE /plans/<id>
+DELETE /plans/{id}
 
 ```
 ## Request headers
@@ -32,7 +34,7 @@ Here is an example of the request.
   "name": "delete_plan"
 }-->
 ```http
-DELETE https://graph.microsoft.com/beta/plans/<id>
+DELETE https://graph.microsoft.com/beta/plans/{id}
 If-Match: W/"JzEtMDAwMDAwMDAwMDAwMDAwOC8yMDE1LTEwLTIyVDE4OjExOjU2LjExMzU1NDYrMDA6MDAn"
 ```
 ##### Response

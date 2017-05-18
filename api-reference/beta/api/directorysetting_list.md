@@ -8,10 +8,10 @@ The following **scopes** are required to execute this API: *Directory.Read.All* 
 List tenant-wide or group settings
 ```http
 GET /settings
-GET group/<id>/settings
+GET group/{id}/settings
 ```
 ## Optional query parameters
-This method supports the [OData Query Parameters](http://graph.microsoft.io/docs/overview/query_parameters) to help customize the response.
+This method supports the [OData Query Parameters](http://developer.microsoft.com/en-us/graph/docs/overview/query_parameters) to help customize the response.
 
 ## Request headers
 | Name      |Description|

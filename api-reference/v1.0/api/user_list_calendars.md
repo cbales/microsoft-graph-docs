@@ -10,23 +10,23 @@ One of the following **scopes** is required to execute this API:
 All the user's calendars.
 ```http
 GET /me/calendars
-GET /users/<id | userPrincipalName>/calendars
+GET /users/{id | userPrincipalName}/calendars
 ```
 
 The user's calendars in the default [calendarGroup](../resources/calendarGroup.md).
 ```http
 GET /me/calendargroups/{calendar_group_id}/calendars
-GET /users/<id | userPrincipalName>/calendarGroup/calendars
+GET /users/{id | userPrincipalName}/calendarGroup/calendars
 ```
 
 The user's calendars in a specific [calendarGroup](../resources/calendarGroup.md).
 ```http
 GET /me/calendarGroups/{calendar_group_id}/calendars
-GET /users/<id | userPrincipalName>/calendarGroups/{calendar_group_id}/calendars
+GET /users/{id | userPrincipalName}/calendarGroups/{calendar_group_id}/calendars
 ```
 
 ## Optional query parameters
-This method supports the [OData Query Parameters](http://graph.microsoft.io/docs/overview/query_parameters) to help customize the response.
+This method supports the [OData Query Parameters](http://developer.microsoft.com/en-us/graph/docs/overview/query_parameters) to help customize the response.
 ## Request headers
 | Header       | Value |
 |:---------------|:--------|

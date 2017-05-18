@@ -34,9 +34,15 @@ GET https://graph.microsoft.com/v1.0/me/messages?$filter=from/emailAddress/addre
 ### $search
 To restrict the results of a request that match a search criterion, use the **$search** query parameter. 
 
->  **Note**: You can currently search messages but not contacts or events. A **$search** request returns up to 250 results. You cannot use **$filter** or **$orderby** in a search request.
+>  **Note**: You can currently use **$search** on collections of [message](../api-reference/v1.0/resources/message.md) and [person](../api-reference/beta/resources/person.md) 
+but not [contact](../api-reference/v1.0/resources/contact.md) or [event](../api-reference/v1.0/resources/event.md). A **$search** request returns up to 250 results. 
+You cannot use **$filter** or **$orderby** in a **$search** request.
 
-Search criteria are expressed using Advanced Query Syntax (AQS). The results are sorted by the date and time that the message was sent.
+Search criteria are expressed using Advanced Query Syntax (AQS). 
+
+**Applying $search on messages**
+
+Search results are sorted by the date and time that the message was sent.
 
 You can specify the following properties on a **message** in a **$search** criterion:
 **attachments**, **bccRecipients**, **body**, **category**, **ccRecipients**, **content**, **from**, **hasAttachments**, **participants**, **receivedDateTime**, **sender**, **subject**, **toRecipients**
@@ -49,7 +55,7 @@ The following example returns all messages in the signed-in user's Inbox that co
 GET https://graph.microsoft.com/v1.0/me/messages?$search="pizza"
 ```
 
-The next example searches all messages in the user's Inbox that were sent from a specific email address:
+The next example searches all the messages in the user's Inbox that were sent from a specific email address:
 
 ```http
 GET https://graph.microsoft.com/v1.0/me/messages?$search="from:help@contoso.com"
@@ -110,7 +116,7 @@ GET https://graph.microsoft.com/v1.0/me/drive/root?$expand=children($select=id,n
 
 >  **Note**: The maximum number of expanded objects for a request is 20. 
 
-> Also, if you query on the [user](http://graph.microsoft.io/en-us/docs/api-reference/v1.0/resources/user) resource, you can use **$expand** to get the properties of only one child object 
+> Also, if you query on the [user](http://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/user) resource, you can use **$expand** to get the properties of only one child object 
 or collection at a time. 
 
 The following example gets **user** objects, each with up to 20 **directReport** objects in the **directReports** collection expanded:
@@ -142,7 +148,7 @@ GET https://graph.microsoft.com/v1.0/me/messages?$orderby=from/emailAddress/addr
 To sort the results in ascending or descending order, append either `asc` or `desc` to the field name, separated by a space, for example,
 `?$orderby=name%20desc`.
 
- >  **Note**: If you query on the [user] resource, **$orderby** can't be combined with filter expressions.
+ >  **Note**: If you query on the [user](../api-reference/v1.0/resources/user.md) resource, **$orderby** can't be combined with filter expressions.
 
 ## $filter
 To filter the response data based on a set of criteria, use the **$filter** query option.
@@ -204,4 +210,4 @@ GET  https://graph.microsoft.com/v1.0/me/contacts?$count=true
 ```
 This would return both the **contacts** collection, and the number of items in the **contacts** collection in the `@odata.count` property.
 
->**Note:** This is not supported for [directoryObject](http://graph.microsoft.io/en-us/docs/api-reference/v1.0/resources/directoryobject) collections.
+>**Note:** This is not supported for [directoryObject](http://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/directoryobject) collections.

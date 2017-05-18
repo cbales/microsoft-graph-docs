@@ -1,14 +1,15 @@
 # post resource type
 
-Represents an individual Post item within a [converstaionThread](conversationthread.md) entity.
+Represents an individual post item within a [converstaionThread](conversationthread.md) entity.
 
-A new post is created when you:
+Even though you cannot explicitly create a post, doing any of the following would create a post:
 
-- [Reply to an existing post](../api/post_reply.md) 
-- [Reply to an existing thread](../api/conversationthread_reply.md) 
-- [Create a thread in a new conversation](../api/group_post_threads.md)
-- [Create a new conversation](../api/group_post_conversations.md)
- 
+* [Reply to an existing post](../api/post_reply.md) 
+* [Reply to an existing thread](../api/conversationthread_reply.md) 
+* [Create a thread in a new conversation](../api/group_post_threads.md)
+* [Create a new conversation](../api/group_post_conversations.md)
+
+This resource lets you add your own data to custom properties using [extensions](../../../concepts/extensibility_overview.md).
 
 ## JSON representation
 
@@ -66,7 +67,7 @@ Here is a JSON representation of the resource
 | Relationship | Type	|Description|
 |:---------------|:--------|:----------|
 |attachments|[Attachment](attachment.md) collection|The collection of [fileAttachment](fileattachment.md), [itemAttachment](itemattachment.md), and [referenceAttachment](referenceAttachment.md) attachments for the post. Read-only. Nullable.|
-|extensions|[Extension](extension.md) collection|The collection of open type data extensions defined for the post. Read-only. Nullable.|
+|extensions|[Extension](extension.md) collection|The collection of open extensions defined for the post. Read-only. Nullable.|
 |inReplyTo|[Post](post.md)|The earlier post that this post is replying to in the [conversationThread](conversationthread.md). Read-only.|
 |multiValueExtendedProperties|[multiValueLegacyExtendedProperty](multivaluelegacyextendedproperty.md) collection| The collection of multi-value extended properties defined for the post. Read-only. Nullable.|
 |singleValueExtendedProperties|[singleValueLegacyExtendedProperty](singlevaluelegacyextendedproperty.md) collection| The collection of single-value extended properties defined for the post. Read-only. Nullable.|
@@ -80,14 +81,26 @@ Here is a JSON representation of the resource
 |[Get post](../api/post_get.md) | [post](post.md) |Get the properties and relationships of a post in a specified thread.|
 |[Reply](../api/post_reply.md)|None|Reply to a post and add a new post to the specified thread in a group conversation.|
 |[Forward](../api/post_forward.md)|None|Forward a post to a recipient.|
-|[List attachments](../api/post_list_attachments.md) |[attachment](attachment.md) collection| Get a list of attachment objects attached to a post.|
-|[Create attachment](../api/post_post_attachments.md) |[attachment](attachment.md)| Add an attachment to a post. |
-|[Create data extension](../api/opentypeextension_post_opentypeextension.md) |[openTypeExtension](opentypeextension.md)| Create an open type data extension and add custom properties in a new or existing instance of a resource.|
-|[Get data extension](../api/opentypeextension_get.md) |[openTypeExtension](opentypeextension.md) collection| Get an **openTypeExtension** object or objects identified by name or fully qualified name.|
+|**Attachments**| | |
+|[List attachments](../api/post_list_attachments.md) |[attachment](attachment.md) collection| Get all attachments on a post.|
+|[Add attachment](../api/post_post_attachments.md) |[attachment](attachment.md)| Add an attachment to a post. |
+|**Open extensions**| | |
+|[Create open extension](../api/opentypeextension_post_opentypeextension.md) |[openTypeExtension](opentypeextension.md)| Create an open extension and add custom properties to a new or existing resource.|
+|[Get open extension](../api/opentypeextension_get.md) |[openTypeExtension](opentypeextension.md) collection| Get an open extension identified by the extension name.|
+|**Schema extensions**| | |
+|[Add schema extension values](../../../concepts/extensibility_schema_groups.md) || Create a schema extension definition and then use it to add custom typed data to a resource.|
+|**Extended properties**| | |
 |[Create single-value extended property](../api/singlevaluelegacyextendedproperty_post_singlevalueextendedproperties.md) |[post](post.md)  |Create one or more single-value extended properties in a new or existing post.   |
 |[Get post with single-value extended property](../api/singlevaluelegacyextendedproperty_get.md)  | [post](post.md) | Get posts that contain a single-value extended property by using `$expand` or `$filter`. |
 |[Create multi-value extended property](../api/multivaluelegacyextendedproperty_post_multivalueextendedproperties.md) | [post](post.md) | Create one or more multi-value extended properties in a new or existing post.  |
 |[Get post with multi-value extended property](../api/multivaluelegacyextendedproperty_get.md)  | [post](post.md) | Get a post that contains a multi-value extended property by using `$expand`. |
+
+
+## See also
+
+- [Add custom data to resources using extensions](../../../concepts/extensibility_overview.md)
+- [Add custom data to users using open extensions (preview)](../../../concepts/extensibility_open_users.md)
+- [Add custom data to groups using schema extensions (preview)](../../../concepts/extensibility_schema_groups.md)
 
 
 

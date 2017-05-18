@@ -1,5 +1,7 @@
 # Update plandetails
 
+>**Important:** This API is deprecated and will be removed on May 26th, 2017. We recommend that you use [Update plannerPlanDetails](plannerplandetails_update.md) API.
+
 Update the properties of plandetails object.
 ## Prerequisites
 One of the following **scopes** is required to execute this API:
@@ -9,7 +11,7 @@ Group.ReadWrite.All
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-PATCH /plans/<id>/details
+PATCH /plans/{id}/details
 
 ```
 ## Request headers
@@ -42,7 +44,7 @@ Here is an example of the request.
   "name": "update_plandetails"
 }-->
 ```http
-PATCH https://graph.microsoft.com/beta/plans/<id>/details
+PATCH https://graph.microsoft.com/beta/plans/{id}/details
 Content-type: application/json
 Content-length: 381
 If-Match: W/"JzEtMDAwMDAwMDAwMDAwMDAwOC8yMDE1LTEwLTIyVDE4OjExOjU2LjExMzU1NDYrMDA6MDAn"

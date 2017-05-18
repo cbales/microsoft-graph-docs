@@ -1,5 +1,7 @@
 # Delete task
 
+>**Important:** This API is deprecated and will be removed on May 26th, 2017. We recommend that you use [Delete plannerTask](plannerTask_delete.md) API.
+
 Delete task.
 ## Prerequisites
 One of the following **scopes** is required to execute this API:
@@ -9,7 +11,7 @@ Group.ReadWrite.All
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-DELETE /tasks/<id>
+DELETE /tasks/{id}
 
 
 ```
@@ -34,7 +36,7 @@ Here is an example of the request.
   "name": "delete_task"
 }-->
 ```http
-DELETE https://graph.microsoft.com/beta/tasks/<id>
+DELETE https://graph.microsoft.com/beta/tasks/{id}
 If-Match: W/"JzEtMDAwMDAwMDAwMDAwMDAwOC8yMDE1LTEwLTIyVDE4OjExOjU2LjExMzU1NDYrMDA6MDAn"
 ```
 ##### Response

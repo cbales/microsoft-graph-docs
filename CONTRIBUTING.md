@@ -52,7 +52,7 @@ Once we receive and process your CLA, we'll do our best to review your pull requ
 3.	Create your own fork of this repository. To do this, at the top of the page,  click the **Fork** button.
 4.	Copy your fork to your local machine. To do this, go open GitBash. At the command prompt enter:
 
-		git clone https://github.com/<your user name>/microsoft-graph-docs.git
+		git clone https://github.com/{your user name}/microsoft-graph-docs.git
 
 	Next, create a reference to the root repository by entering these commands:
 
@@ -144,11 +144,6 @@ To delete your branch follow these steps:
 Congratulations, you have successfully contributed to the project.
 
 ## How to use Markdown to format your topic
-
-### Article template
-
-The [markdown template](/articles/0-markdown-template-for-new-articles.md) contains the basic Markdown for a topic that includes a table of contents, sections with subheadings, links to other Office developer topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. 
-
 
 ### Standard Markdown
 

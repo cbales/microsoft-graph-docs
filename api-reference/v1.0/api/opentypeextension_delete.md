@@ -1,39 +1,34 @@
-# Delete data extension
+# Delete open extension
 
-Delete a data extension ([openTypeExtension](../resources/openTypeExtension.md) object) from the specified instance of a resource. 
-
-The resource can be a message, calendar event, or contact of the signed-in user's on Office 365 or
-Outlook.com. Or, it can be an event or post for an Office 365 group.
+Delete an open extension ([openTypeExtension](../resources/openTypeExtension.md) object) from the specified instance of a resource. 
 
 ## Prerequisites
 
-One of the following **scopes** is required to execute this API, depending on the resource you're
+One of the following **permissions** is required to execute this API, depending on the resource you're
 deleting the extension from:
 
-- _Mail.ReadWrite_
-- _Calendars.ReadWrite_
-- _Contacts.ReadWrite_
-- _Group.ReadWrite.All_
+|**Supported resource**|**Permission**|**Supported resource**|**Permission** |
+|:-----|:-----|:-----|:-----|
+| [event](../resources/event.md) | _Calendars.ReadWrite_ | [group event](../resources/event.md) | _Calendars.ReadWrite_ | 
+| [group post](../resources/post.md) | _Group.ReadWrite.All_ | [message](../resources/message.md) | _Mail.ReadWrite_ | 
+| [personal contact](../resources/contact.md) | _Contacts.ReadWrite_ |
 
  
 ## HTTP request
+In the request, identify the resource instance, use the **extensions** 
+navigation property of that instance to identify the extension, and do a `DELETE` on that extension instance.
+
 <!-- { "blockType": "ignored" } -->
 ```http
-DELETE /me/messages/<id>/extensions/<extensionId>
-DELETE /users/<id|userPrincipalName>/messages/<id>/extensions/<extensionId>
-DELETE /me/mailFolders/<id>/messages/<id>/extensions/<extensionId>
-
-DELETE /me/events/<id>/extensions/<extensionId>
-DELETE /users/<id|userPrincipalName>/events/<id>/extensions/<extensionId>
-
-DELETE /me/contacts/<id>/extensions/<extensionId>
-DELETE /users/<id|userPrincipalName>/contacts/<id>/extensions/<extensionId>
-
-DELETE /groups/<id>/events/<id>/extensions/<extensionId>
-
-DELETE /groups/<id>/threads/<id>/posts/<id>/extensions/<extensionId>
-DELETE /groups/<id>/conversations/<id>/threads/<id>/posts/<id>/extensions/<extensionId>
+DELETE /users/{id|userPrincipalName}/contacts/{id}/extensions/{extensionId}
+DELETE /users/{id|userPrincipalName}/events/{id}/extensions/{extensionId}
+DELETE /users/{id|userPrincipalName}/messages/{id}/extensions/{extensionId}
+DELETE /groups/{id}/events/{id}/extensions/{extensionId}
+DELETE /groups/{id}/threads/{id}/posts/{id}/extensions/{extensionId}
 ```
+
+>**Note:** The above syntax shows some common ways to identify a resource instance, in order to delete an extension from it. 
+All other syntax that allows you to identify these resource instances supports deleting open extensions from them in a similar way.
 
 ## Parameters
 |**Parameter**|**Type**|**Description**|

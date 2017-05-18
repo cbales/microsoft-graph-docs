@@ -1,83 +1,75 @@
-# Get data extension
+# Get open extension
 
-Get a data extension ([openTypeExtension](../resources/openTypeExtension.md) object) identified by name or fully qualified name.
+Get an open extension ([openTypeExtension](../resources/openTypeExtension.md) object) identified by name or fully qualified name.
 
-Resources that support open type Office 365 data extensions include a message, calendar event, or contact of the 
-signed-in user's on Office 365 or Outlook.com. Or, it can be an event or post for an Office 365 group.
-Depending on the resource type, there are a few ways to get a data extension.
+The following table lists the three scenarios where you can get an open extension from a supported resource instance.
 
-|**GET description**|**Supported resources**|**Response body**|
+|**GET scenario**|**Supported resources**|**Response body**|
 |:-----|:-----|:-----|
-|Get a specific extension in a known resource instance.|Message, event, contact, group event, group post | Data extension only.|
-|Get a known resource instance expanded with a specific extension.|Message, event, contact, group event|A resource instance expanded with the data extension.|
-|Find and expand resource instances with a specific extension. |Message, event, contact, group event|Resource instances expanded with the data extension.|
+|Get a specific extension from a known resource instance.| [contact](../resources/contact.md), [event](../resources/event.md), [group event](../resources/event.md), [group post](../resources/post.md), [message](../resources/message.md) | Open extension only.|
+|Get a known resource instance expanded with a specific extension.|Contact, event, group event, message|A resource instance expanded with the open extension.|
+|Find and expand resource instances with a specific extension. |Contact, event, group event, message|Resource instances expanded with the open extension.|
 
 
 ## Prerequisites
 
-One of the following **scopes** is required to execute this API, depending on the resource you're
-getting the extension from:
+One of the following **permissions** is required to execute this API, depending on the resource that contains the extension.
 
-- _Mail.Read_
-- _Calendars.Read_
-- _Contacts.Read_
-- _Group.Read.All_
+|**Supported resource**|**Permission**|**Supported resource**|**Permission** |
+|:-----|:-----|:-----|:-----|
+| [event](../resources/event.md) | _Calendars.Read_ | [group event](../resources/event.md) | _Calendars.Read_ | 
+| [Group post](../resources/post.md) | _Group.Read.All_ | [message](../resources/message.md) | _Mail.Read_ | 
+| [Personal contact](../resources/contact.md) | _Contacts.Read_ |
  
 ## HTTP request
 
+This section lists the syntax for each of the three `GET` scenarios described above.
 
-To get a specific extension in a known resource instance:
+### Get a specific extension in a known resource instance
+
+Use the same REST request as getting the resource instance, and identify the extension using the **extensions** 
+navigation property of that instance.
+
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /me/messages/<Id>/extensions/<extensionId>
-GET /users/<Id|userPrincipalName>/messages/<Id>/extensions/<extensionId>
-GET /me/mailFolders/<Id>/messages/<Id>/extensions/<extensionId>
-
-GET /me/events/<Id>/extensions/<extensionId>
-GET /users/<Id|userPrincipalName>/events/<Id>/extensions/<extensionId>
-
-GET /me/contacts/<Id>/extensions/<extensionId>
-GET /users/<Id|userPrincipalName>/contacts/<Id>/extensions/<extensionId>
-
-GET /groups/<Id>/events/<Id>/extensions/<extensionId>
-
-GET /groups/<Id>/threads/<Id>/posts/<Id>/extensions/<extensionId>
-GET /groups/<Id>/conversations/<Id>/threads/<Id>/posts/<Id>/extensions/<extensionId>
+GET /users/{Id|userPrincipalName}/messages/{Id}/extensions/{extensionId}
+GET /users/{Id|userPrincipalName}/events/{Id}/extensions/{extensionId}
+GET /users/{Id|userPrincipalName}/contacts/{Id}/extensions/{extensionId}
+GET /groups/{Id}/events/{Id}/extensions/{extensionId}
+GET /groups/{Id}/threads/{Id}/posts/{Id}/extensions/{extensionId}
 ```
 
-To get a known resource instance expanded with an extension that matches a filter on the **id** property:
+
+### Get a known resource instance expanded with a matching extension 
+
+Use the same REST request as getting the resource instance, look for an extension that matches a 
+filter on its **id** property, and expand the instance with the extension.
+
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /me/messages/<Id>?$expand=extensions($filter=id eq '<extensionId>')
-GET /users/<Id|userPrincipalName>/messages/<Id>?$expand=extensions($filter=id eq '<extensionId>')
-GET /me/mailFolders/<Id>/messages/<Id>?$expand=extensions($filter=id eq '<extensionId>')
-
-GET /me/events/<Id>?$expand=extensions($filter=id eq '<extensionId>')
-GET /users/<Id|userPrincipalName>/events/<Id>?$expand=extensions($filter=id eq '<extensionId>')
-
-GET /me/contacts/<Id>?$expand=extensions($filter=id eq '<extensionId>')
-GET /users/<Id|userPrincipalName>/contacts/<Id>?$expand=extensions($filter=id eq '<extensionId>')
-
-GET /groups/<Id>/events/<Id>?$expand=extensions($filter=id eq '<extensionId>')
+GET /users/{Id|userPrincipalName}/messages/{Id}?$expand=extensions($filter=id eq '{extensionId}')
+GET /users/{Id|userPrincipalName}/events/{Id}?$expand=extensions($filter=id eq '{extensionId}')
+GET /users/{Id|userPrincipalName}/contacts/{Id}?$expand=extensions($filter=id eq '{extensionId}')
+GET /groups/{Id}/events/{Id}?$expand=extensions($filter=id eq '{extensionId}')
 ```
 
-To filter for resource instances that contain an extension matching a filter on the **id** property, and get these instances expanded 
-with the extension:
+### Filter for resource instances expanded with a matching extension 
+
+Use the same REST request as getting a collection of the supported resource, filter the collection 
+for instances that contain an extension with a matching **id** property, and expand these instances 
+with the extension.
+
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /me/messages?$filter=Extensions/any(f:f/id eq '<extensionId>')&$expand=Extensions($filter=id eq '<extensionId>')
-GET /users/<Id|userPrincipalName>/messages?$filter=Extensions/any(f:f/id eq '<extensionId>')&$expand=Extensions($filter=id eq '<extensionId>')
-GET /me/mailFolders/<Id>/messages?$filter=Extensions/any(f:f/id eq '<extensionId>')&$expand=Extensions($filter=id eq '<extensionId>')
-
-GET /me/events?$filter=Extensions/any(f:f/id eq '<extensionId>')&$expand=Extensions($filter=id eq '<extensionId>')
-GET /users/<Id|userPrincipalName>/events?$filter=Extensions/any(f:f/id eq '<extensionId>')&$expand=Extensions($filter=id eq '<extensionId>')
-
-GET /me/contacts?$filter=Extensions/any(f:f/id eq '<extensionId>')&$expand=Extensions($filter=id eq '<extensionId>')
-GET /users/<Id|userPrincipalName>/contacts?$filter=Extensions/any(f:f/id eq '<extensionId>')&$expand=Extensions($filter=id eq '<extensionId>')
-
-GET /groups/<Id>/events?$filter=Extensions/any(f:f/id eq '<extensionId>')&$expand=Extensions($filter=id eq '<extensionId>')
+GET /users/{Id|userPrincipalName}/messages?$filter=Extensions/any(f:f/id eq '{extensionId}')&$expand=Extensions($filter=id eq '{extensionId}')
+GET /users/{Id|userPrincipalName}/events?$filter=Extensions/any(f:f/id eq '{extensionId}')&$expand=Extensions($filter=id eq '{extensionId}')
+GET /users/{Id|userPrincipalName}/contacts?$filter=Extensions/any(f:f/id eq '{extensionId}')&$expand=Extensions($filter=id eq '{extensionId}')
+GET /groups/{Id}/events?$filter=Extensions/any(f:f/id eq '{extensionId}')&$expand=Extensions($filter=id eq '{extensionId}')
 ```
 
+>**Note:** The above syntax shows some common ways to identify a resource instance or collection, 
+in order to get an extension from it. All other syntax that allows you to identify these resource 
+instances or collections supports getting open extensions from them in a similar way.
 
 ## Parameters
 |**Parameter**|**Type**|**Description**|

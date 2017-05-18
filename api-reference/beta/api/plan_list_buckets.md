@@ -1,5 +1,7 @@
 # List buckets
 
+>**Important:** This API is deprecated and will be removed on May 26th, 2017. We recommend that you use [List plannerBuckets](plannerPlan_list buckets.md) API.
+
 Retrieve a list of bucket objects.
 ## Prerequisites
 One of the following **scopes** is required to execute this API:
@@ -9,7 +11,7 @@ Group.Read.All, Group.ReadWrite.All
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /plans/<id>/buckets
+GET /plans/{id}/buckets
 ```
 ## Optional query parameters
 None
@@ -31,7 +33,7 @@ Here is an example of the request.
   "name": "get_buckets"
 }-->
 ```http
-GET https://graph.microsoft.com/beta/plans/<id>/buckets
+GET https://graph.microsoft.com/beta/plans/{id}/buckets
 ```
 ##### Response
 Here is an example of the response. 

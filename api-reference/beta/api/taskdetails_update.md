@@ -1,5 +1,7 @@
 # Update taskdetails
 
+>**Important:** This API is deprecated and will be removed on May 26th, 2017. We recommend that you use [Update plannerTaskDetails](plannertaskdetails_update.md) API.
+
 Update the properties of taskdetails object.
 ## Prerequisites
 One of the following **scopes** is required to execute this API:
@@ -9,7 +11,7 @@ Group.ReadWrite.All
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-PATCH /tasks/<id>/details
+PATCH /tasks/{id}/details
 
 ```
 ## Request headers
@@ -40,7 +42,7 @@ Here is an example of the request.
   "name": "update_taskdetails"
 }-->
 ```http
-PATCH https://graph.microsoft.com/beta/tasks/<id>/details
+PATCH https://graph.microsoft.com/beta/tasks/{id}/details
 Content-type: application/json
 Content-length: 181
 If-Match: W/"JzEtMDAwMDAwMDAwMDAwMDAwOC8yMDE1LTEwLTIyVDE4OjExOjU2LjExMzU1NDYrMDA6MDAn"
@@ -52,8 +54,7 @@ If-Match: W/"JzEtMDAwMDAwMDAwMDAwMDAwOC8yMDE1LTEwLTIyVDE4OjExOjU2LjExMzU1NDYrMDA
   "references": {
   },
   "checklist": {
-  },
-  "id": "id-value"
+  }
 }
 ```
 ##### Response
